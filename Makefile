@@ -17,8 +17,8 @@ lint:
 build: clean lint
 	flit build
 
+MODULE_VERSION := $(shell python -c "from leppard import __version__ as v; print(v)" | tail -n1)
 
-MODULE_VERSION := $(shell python -c "from leppard import __version__ as v; print(v)")
 check_version:
 	[ "refs/tags/${MODULE_VERSION}" = "${GITHUB_REF}" ]
 
